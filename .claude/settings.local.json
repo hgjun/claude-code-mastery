@@ -1,0 +1,15 @@
+{
+  "language": "korean",
+  "permissions": {
+    "allow": [
+      "Bash",
+      "WebFetch(domain:dribbble.com)"
+    ]
+  },
+  "multilineInput": true,
+  "plansDirectory": "./docs/plans/",  
+  "statusLine": {
+    "type": "command",
+    "command": "./.claude/statusline-command.sh"
+  }
+}

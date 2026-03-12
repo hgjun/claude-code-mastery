@@ -1,0 +1,176 @@
+/* ==========================================
+   CSS 변수 정의 - 다크모드
+   ========================================== */
+:root {
+  /* Dark Mode Colors - Backgrounds */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #111111;
+  --bg-tertiary: #1A1A1A;
+  --bg-hover: #222222;
+
+  /* Dark Mode Colors - Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E0E0E0;
+  --text-tertiary: #A0A0A0;
+  --text-muted: #666666;
+
+  /* Dark Mode Colors - Accents */
+  --accent-primary: #60A5FA;
+  --accent-secondary: #A78BFA;
+  --accent-success: #34D399;
+
+  /* Border */
+  --border-color: #222222;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.7);
+
+  /* Glow Effects */
+  --glow-primary: 0 0 20px rgba(96, 165, 250, 0.3);
+  --glow-secondary: 0 0 20px rgba(167, 139, 250, 0.3);
+
+  /* 폰트 */
+  --font-primary: 'Noto Sans KR', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* 애니메이션 속도 */
+  --transition-speed: 0.3s;
+}
+
+/* ==========================================
+   기본 스타일
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  background-color: var(--bg-primary);
+}
+
+/* ==========================================
+   스크롤 애니메이션
+   ========================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   커스텀 유틸리티 클래스
+   ========================================== */
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 10rem 3rem;
+  }
+}
+
+/* ==========================================
+   버튼 호버 효과
+   ========================================== */
+.btn-hover {
+  transition: all var(--transition-speed) ease;
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================
+   SNS 카드 호버 효과
+   ========================================== */
+.social-card {
+  transition: all var(--transition-speed) ease;
+}
+
+.social-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   다크모드 전용 스타일
+   ========================================== */
+
+/* 그라데이션 텍스트 */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass Card 효과 */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 커스텀 스크롤바 (다크모드) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-hover);
+}
+
+/* 링크 호버 애니메이션 */
+.link-hover {
+  position: relative;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
